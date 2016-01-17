@@ -19,7 +19,7 @@ layout: default
   <ul class="page-list">
     {% assign pages = site.pages | sort:'difficulty' %}
     {% for page in pages %}
-    {% if page.category == "brain-teaser" %}
+    {% if (page.category == "brain-teaser" and page.tags contains "question") %}
     <li>
       <h4>
         <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>

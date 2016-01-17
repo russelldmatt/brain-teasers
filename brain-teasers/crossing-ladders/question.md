@@ -1,8 +1,12 @@
 ---
-layout: default
+layout: brain-teaser
 title:  "Crossing ladders"
-category: brain-teaser
 difficulty: 3
+category: brain-teaser
+tags:
+- question
+- solved
+
 ---
 
 ## {{ page.title }} ##

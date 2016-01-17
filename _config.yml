@@ -9,9 +9,7 @@
 title: Brain Teasers
 email: russell.d.matt@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A central place for all the cool brain teasers that I know about.
 baseurl: "/brain-teasers" # the subpath of your site, e.g. /blog
 url: "http://russelldmatt.github.io" # the base hostname & protocol for your site
 twitter_username: 
