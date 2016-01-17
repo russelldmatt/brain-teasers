@@ -6,7 +6,7 @@ difficulty: 3
 ---
 
 ## {{ page.title }} ##
-<img src="tmp.jpg" alt="Ladder" style="width: 100px;"/>
+<img src="ladder.jpg" alt="Ladder" style="width: 100px;"/>
 
 Imagine two ladders, A and B, crossing in an alleyway.  Ladder A's top is leaning against the left wall of the alley and its base is touching the right wall.  Ladder B's top is leaning against the right wall of the alley and its base is touching the left wall.  If you look at them from a distance, they kind of look like an "X".
 
