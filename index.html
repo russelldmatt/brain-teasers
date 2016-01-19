@@ -16,18 +16,38 @@ layout: default
   <!--   {% endfor %} -->
   <!-- </ul> -->
 
-  <ul class="page-list">
+<style type="text/css" media="screen">
+  td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+</style>
+<table>
+  <tr style="font-size: 14px;">
+    <td>Difficulty</td><td>Solved</td><td>Question</td>
+  </tr>
     {% assign pages = site.pages | sort:'difficulty' %}
     {% for page in pages %}
     {% if (page.category == "brain-teaser" and page.tags contains "question") %}
-    <li>
-      <h4>
+  <tr>
+    <td>
+      {% include stars.html difficulty=page.difficulty %}
+    </td><td>{% if page.tags contains "solved" %}<img src="check.png" width="25px">{% else %}No{% endif %}</td>
+    <td>
+      <h4 style="display:table-cell;">
         <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
       </h4>
-    </li>
+    </td>
+  </tr>
     {% endif %}
     {% endfor %}
-  </ul>
+</table>    
+  
+<!-- </table> -->
+<!--   <ul class="page-list"> -->
+<!--     <li> -->
+<!--     </li> -->
+<!--   </ul> -->
 
   <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
 

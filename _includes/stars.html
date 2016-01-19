@@ -1,0 +1,9 @@
+{% assign num_whole_stars = include.difficulty | divided_by:2 %}
+{% assign half = include.difficulty | modulo:2 %}
+{% if half == 1 %} 
+  {% assign num_stars = '.5' | prepend:num_whole_stars %}
+{% else %}
+  {% assign num_stars = num_whole_stars %}
+{% endif %}
+
+<img src="{{ "/stars/number_stars.png" | replace:'number',num_stars | prepend: site.baseurl }}" width="80px">
