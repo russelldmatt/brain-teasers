@@ -11,7 +11,7 @@ tags: solution
 2/3
 
 ### Using Simulation ###
-{% highlight python linenos %}
+{% highlight python %}
 import numpy as np
 
 def one(num_shots):
@@ -51,7 +51,7 @@ print prob_makes_it(ps)
 
 
 ### Using PDF w/Computer ###
-{% highlight python linenos %}
+{% highlight python %}
 import numpy as np
 
 def step(ps, xs, count):
