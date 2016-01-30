@@ -4,18 +4,6 @@ layout: default
 
 <div class="home">
 
-  <!-- <h1 class="page-heading">Posts</h1> -->
-  <!-- <ul class="post-list"> -->
-  <!--   {% for post in site.posts %} -->
-  <!--     <li> -->
-  <!--       <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> -->
-  <!--       <h2> -->
-  <!--         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> -->
-  <!--       </h2> -->
-  <!--     </li> -->
-  <!--   {% endfor %} -->
-  <!-- </ul> -->
-
 <style type="text/css" media="screen">
   td {
   padding-left: 5px;
@@ -32,7 +20,7 @@ layout: default
   <tr>
     <td>
       {% include stars.html difficulty=page.difficulty %}
-    </td><td>{% if page.tags contains "solved" %}<img src="check.png" width="25px">{% else %}No{% endif %}</td>
+    </td><td>{% if page.tags contains "solved" %}<img src="check.png" width="20px">{% else %}No{% endif %}</td>
     <td>
       <h4 style="display:table-cell;">
         <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
@@ -43,13 +31,5 @@ layout: default
     {% endfor %}
 </table>    
   
-<!-- </table> -->
-<!--   <ul class="page-list"> -->
-<!--     <li> -->
-<!--     </li> -->
-<!--   </ul> -->
-
-  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
-
 </div>
 
