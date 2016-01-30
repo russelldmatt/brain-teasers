@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: solution
 title:  "Tic Tac Toe"
 category: brain-teaser
 tags: solution
 
 ---
-
-## {{ page.title }} (Solution) ##
 
 Let's just discuss $$3^n$$ hypercube, since 3x3x3 cube follows from that.
 

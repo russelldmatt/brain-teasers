@@ -25,7 +25,7 @@ tags:
 
 touch ${dir_name}/solution.md
 echo "---
-layout: default
+layout: solution
 title:  \"$question_name\"
 category: brain-teaser
 tags: solution

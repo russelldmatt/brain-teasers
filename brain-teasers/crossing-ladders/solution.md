@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: solution
 title:  "Crossing Ladders"
 category: brain-teaser
 tags: solution
 
 ---
-
-## {{ page.title }} (Solution) ##
 
 ~1.23 feet
 
