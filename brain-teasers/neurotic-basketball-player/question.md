@@ -6,7 +6,7 @@ category: brain-teaser
 tags:
 - question
 - solved
-source: http://fivethirtyeight.com (The Riddler)
+source: <a href="http://fivethirtyeight.com/features/will-the-neurotic-basketball-player-make-his-next-free-throw/">The Riddler</a>
 
 ---
 

@@ -20,7 +20,7 @@ layout: default
   <tr>
     <td>
       {% include stars.html difficulty=page.difficulty %}
-    </td><td>{% if page.tags contains "solved" %}<img src="check.png" width="20px">{% else %}No{% endif %}</td>
+    </td><td>{% if page.tags contains "solved" %}<img src="check.png" width="20px">{% else %}{% endif %}</td>
     <td>
       <h4 style="display:table-cell;">
         <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
