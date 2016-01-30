@@ -10,7 +10,7 @@ tags: solution
 
 2/3
 
-### Using Simulation ###
+## Using Simulation ##
 {% highlight python %}
 import numpy as np
 
@@ -50,7 +50,7 @@ print prob_makes_it(ps)
 {% endhighlight %}
 
 
-### Using PDF w/Computer ###
+## Using PDF w/Computer ##
 {% highlight python %}
 import numpy as np
 
@@ -100,7 +100,7 @@ ps = adjust_because_he_made_it(ps, xs, count)
 pretty_print(ps, xs, count)
 {% endhighlight %}
 
-### Using intuition ###
+## Using intuition ##
 
 The probability of making a shot doesn't change from one shot to the next.  Let's say he's currently make n out of t shots.
 

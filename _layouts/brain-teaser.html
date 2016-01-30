@@ -2,7 +2,10 @@
 layout: default
 ---
 
-<h2>{{ page.title }}</h2> 
+{% if page.source %}<div align="right" style="font-size: 0.5em"> Credit for this problem goes to {{ page.source }}.  Thanks!</div> {% endif %}
+
+<h2>{{ page.title }}</h2>
+
 {{ content }}
 
 {% if page.tags contains "solved" %}
