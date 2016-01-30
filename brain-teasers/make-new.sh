@@ -31,6 +31,4 @@ category: brain-teaser
 tags: solution
 
 ---
-
-## {{ page.title }} (Solution) ##
 " >> ${dir_name}/solution.md
