@@ -1,7 +1,7 @@
 ---
 layout: brain-teaser
 title:  "Crossing ladders"
-difficulty: 3
+difficulty: 2
 category: brain-teaser
 tags:
 - question
