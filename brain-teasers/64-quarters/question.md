@@ -10,7 +10,7 @@ source: jrice and rquabili
 
 ---
 
-<img src="image.jpg" alt="Quarters on a chess board" style="width: 100px;"/>
+<img src="image.jpg" alt="Quarters on a chess board" style="width:350px;"/>
 
 Unsurprisingly, this question involves a perverse jailer and two prisoners hoping to gain their freedom.
 
