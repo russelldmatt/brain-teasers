@@ -23,7 +23,7 @@ There is one more case to consider.  Lines (solutions) that utilize the new dime
 Adding this all together, we get
 
 $$
-f(n) = 3 f(n-1) + 2 f(n-1) + 3^{n-1} 
+f(n) = 3 f(n-1) + 2 f(n-1) + 3^{n-1} \\
 f(n) = 5 f(n-1) + 3^{n-1}
 $$
 
