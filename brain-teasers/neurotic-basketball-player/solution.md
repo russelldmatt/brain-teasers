@@ -100,7 +100,7 @@ pretty_print(ps, xs, count)
 
 ## Using intuition ##
 
-The probability of making a shot doesn't change from one shot to the next.  Let's say he's currently make n out of t shots.
+The probability of making a shot doesn't change from one shot to the next.  Let's say he's currently made n out of t shots.
 
 $$
 p_{make it} = \frac{n}{t} 
