@@ -1,0 +1,15 @@
+---
+layout: solution
+title:  "Excited Dog"
+category: brain-teaser
+tags: solution
+
+---
+
+Thinking about the path of the dog makes this problem hard.  Instead, think about the path of the people.  Combined, Bob and Sam are closing the 2 mile gap between them at a rate of 10 MPH.  So that takes 1/5 of an hour.
+
+The dog runs at 25MPH, so how far can he run in 1/5 of an hour?  Easy, 5 miles.
+
+
+
+
