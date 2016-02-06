@@ -35,13 +35,13 @@ $$
 You can see where this is going.  Number of ways we can arrange the balls s.t. no ball is in the correct place:
 
 $$
-\sum_{x=0}^8 (-1)^x {8 \choose x} * (8-x)!
+\sum_{x=0}^8 (-1)^x {8 \choose x} (8-x)!
 $$
 
 So the probability I randomly arrange the balls s.t. no ball is in the same numbered box?
 
 $$
-\frac{\sum_{x=0}^8 (-1)^x {8 \choose x} * (8-x)!}{8!}
+\frac{\sum_{x=0}^8 (-1)^x {8 \choose x} (8-x)!}{8!}
 $$
 
 
