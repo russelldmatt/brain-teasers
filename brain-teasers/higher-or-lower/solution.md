@@ -8,7 +8,7 @@ tags: solution
 
 To start, it seems intuitively clear that if the current number is > 0.5, then you should guess "lower", and otherwise guess "higher".  Let's just agree that's optimal.
 
-Let's call $$z(x)$$ the value of the game if the "current number" (i.e. the last number generated) is $$x$$.  Given our symmetric strategy around 0.5, it's also clear that $$z(\frac{1}{2}+x) = z(\frac{1}{2}-x)$$.  So, to simplify our equations, let's define $$f(x)$$ as the value of the game if the current number is $$x$$ away from $$\frac{1}{2}$$.  In other words, $$z(x) = f(\vert x - \frac{1}{2}\vert)$$. So, if the current number is 1, then the value of this game is $$z(1) = f(\frac{1}{2})$$.
+Let's call $$z(x)$$ the value of the game if the "current number" (i.e. the last number generated) is $$x$$.  Given our symmetric strategy around 0.5, it's also clear that $$z(\frac{1}{2}+x) = z(\frac{1}{2}-x)$$.  To simplify our equations, let's define $$f(x)$$ as the value of the game if the current number is $$x$$ away from $$\frac{1}{2}$$.  In other words, $$z(x) = f(\vert x - \frac{1}{2}\vert)$$. So, if the current number is 1, then the value of this game is $$z(1) = f(\frac{1}{2})$$.
 
 This equation accurately describes the value of the game, for any $$x$$:
 
@@ -39,7 +39,7 @@ $$
 
 And since $$0$$ is a constant, it can't depend on $$x$$, meaning that $$m+1 = 0$$ and $$m = -1$$.  $$b$$ doesn't actually matter since I'm only interested in $$f(x)$$, which depends on differences of $$g(x)$$, meaning that the constant part of $$g(x)$$ will always cancel out.
 
-So we now have this equation:
+So, we now have this equation:
 
 $$
 g(x) = -x + c_1 \\
@@ -62,16 +62,16 @@ g'(x) = c_0 e^x - 1 \\
 g'(x) = g(x) + x + c_2 
 $$
 
-So let's incorporate an additional $$c_0 e^x$$ into our solution for $$g(x)$$.
+Let's incorporate an additional $$c_0 e^x$$ into our solution for $$g(x)$$.
 
 $$
 g(x) = c_0 e^x + -x + c_1 \\
 f(x) = c_0 e^x - 1 
 $$
 
-So, I don't care about $$c_1$$ because the function I really want is $$f(x) = g'(x)$$ and $$c_1$$ won't affect $$f(x)$$.  But $$c_0$$ will affect $$f(x)$$ so we need to figure that one out.
+I don't care about $$c_1$$ because the function I really want is $$f(x) = g'(x)$$ and $$c_1$$ won't affect $$f(x)$$.  But $$c_0$$ will affect $$f(x)$$ so we need to figure that one out.
 
-In order to solve for $$c_0$$ we can use the fact that $$f(\frac{1}{2}) = 2f(0)$$.  This is from intuition.  If the current number if 0.5, and you guess lower, and you're right, then - on average - you're in the same situation as if the current number is 1 and you guess lower.  The only difference is that in the 0.5 case, you're wrong half the time.  So $$f(\frac{1}{2}) = 2f(0)$$.
+In order to solve for $$c_0$$ we can use the fact that $$f(\frac{1}{2}) = 2f(0)$$.  This is from intuition.  If the current number if 0.5, and you guess lower, and you're right, then - on average - you're in the same situation as if the current number is 1 and you guess lower.  The only difference is that in the 0.5 case, you're wrong half the time.  $$f(\frac{1}{2}) = 2f(0)$$.
 
 $$
 f(x) = c_0 e^x - 1 \\
