@@ -3,6 +3,7 @@ layout: brain-teaser
 title:  "The Auction"
 difficulty: 4
 category: brain-teaser
+hidden: true
 tags:
 - question
 - solved
