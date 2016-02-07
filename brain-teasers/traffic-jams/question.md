@@ -1,7 +1,7 @@
 ---
 layout: brain-teaser
 title:  "Traffic Jams"
-difficulty: 5
+difficulty: 4
 category: brain-teaser
 tags:
 - question
