@@ -19,7 +19,7 @@ $$
 
 But how to solve that... ugh.
 
-Let's define $$f'(x) = g(x)$$, i.e. $$f(x)$$ is the first derivative of $$g(x)$$.  Now we can rewrite our equations:
+Let's define $$f(x) = g'(x)$$, i.e. $$f(x)$$ is the first derivative of $$g(x)$$.  Now we can rewrite our equations:
 
 $$
 g'(x) = g(y) \bigg|_0^{\frac{1}{2}} + g(y) \bigg|_0^x + \frac{1}{2} + x \\
