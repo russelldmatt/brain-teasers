@@ -6,10 +6,6 @@ permalink: /about/
 
 ## About ##
 
-<style>
-p { font-size:0.9em }
-</style>
-
 This site is A) a place to collect all the interesting brain teasers that I've heard over the years and B) a way to learn how to write a mostly static website (using jekyll, fwiw).
 
 A few disclaimers:
