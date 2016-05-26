@@ -1,7 +1,7 @@
 ---
 layout: brain-teaser
 title:  "Guess the Answers"
-difficulty: 5
+difficulty: 7
 category: brain-teaser
 tags:
 - question
