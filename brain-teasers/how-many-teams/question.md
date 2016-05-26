@@ -9,6 +9,8 @@ tags:
 
 ---
 
+<img src="teams.jpg" alt="Teams" style="width:350px;"/>
+
 N kids are going to play a game.  You need to split the kids up into teams.  How many ways can you do it?
 
 A few clarifications:
