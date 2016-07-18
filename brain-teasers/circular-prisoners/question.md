@@ -1,7 +1,7 @@
 ---
 layout: brain-teaser
 title:  "Circular Prisoners"
-difficulty: 9
+difficulty: 8
 category: brain-teaser
 tags:
 - question
