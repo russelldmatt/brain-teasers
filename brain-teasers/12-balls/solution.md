@@ -6,7 +6,8 @@ tags: solution
 
 ---
 
-<!-- Add Link to better site about this puzzle -->
+Drew Reiner and I solved this together.  I can't say that our method was particularly elegant, it was mostly just think about it for a long time and try lots of stuff.  For a more complete dissection of this problem, I suggest looking [here](http://www.cut-the-knot.com/blue/OddballProblem1.shtml).
+
 Number the 12 balls from 0 to 11.
 
 <pre>
