@@ -10,9 +10,9 @@ layout: default
   padding-right: 5px;
 }
 </style>
-<table>
+<table class="table table-striped table-hover table-condensed">
   <tr style="font-size: 14px;">
-    <td>Difficulty</td><td>Solved</td><td>Question</td>
+    <th>Difficulty</th><th>Solved</th><th>Question</th>
   </tr>
     {% assign show_hidden = page.show_hidden %}
     {% assign pages = site.pages | sort:'difficulty' %}
