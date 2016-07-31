@@ -10,7 +10,7 @@ I'd put one red marble in one urn, and the rest of the marbles in the other urn.
 
 $$
 P = 0.5 * (1) + 0.5 * (49 / 99) \\
-P ~= 0.75
+P \approx 0.75
 $$
 
 Almost, but not quite, 75%, so I'd pay almost $75.
