@@ -3,7 +3,6 @@ layout: brain-teaser
 title:  "Higher or Lower"
 difficulty: 8
 category: brain-teaser
-hidden: true
 tags:
 - question
 - solved
