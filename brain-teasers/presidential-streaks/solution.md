@@ -6,7 +6,7 @@ tags: solution
 
 ---
 
-Disclaimer, I'm going to refer to Republicans and Democrats as heads and tails, respectively.  
+Disclaimer: I'm going to refer to Republicans and Democrats as heads and tails, respectively.  
 
 Can we just try all sequences?  The number of sequences of 22 heads and 16 tails is $${38 \choose 16} = 22,239,974,430$$.  Probably not.
 
@@ -109,4 +109,4 @@ def prob_lte(k, h, t):
 print prob_lte(5, 22, 16)
 {% endhighlight %}
 
-$$prob\_lte(5, 22, 16) \approx 0.55$$, meaning that if there was absolutly no connection between one election and the next, the probability that the longest consecutive sequence of wins by either political party would be 5 terms or less is about 55%.  Null hypothesis not rejected...
+$$prob\_lte(5, 22, 16) \approx 0.55$$, meaning that if there were absolutly no connection between one election and the next, the probability that the longest consecutive sequence of wins by either political party would be 5 terms or fewer is about 55%.  Null hypothesis not rejected...
