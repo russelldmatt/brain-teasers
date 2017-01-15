@@ -50,13 +50,12 @@ td {
 
 <script>
  $(document).ready(function() { 
-     console.log("hi");
      var hiddenSpanHTML = function(node) 
      { 
          // extract the value from the hidden span that is the first child node of each <td>
          return node.childNodes[0].nextSibling.innerHTML;
-     } 
-     $("#main-table").tablesorter({textExtraction: hiddenSpanHTML}); 
+     }
+     $("#main-table").tablesorter({textExtraction: hiddenSpanHTML});
  }
  ); 
 </script>
