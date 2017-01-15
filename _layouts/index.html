@@ -15,7 +15,10 @@ td {
 <table id="main-table" class="tablesorter table table-striped table-hover table-condensed">
   <thead>
     <tr style="font-size: 14px;">
-      <th>Difficulty</th><th>Solved</th><th>Question</th>
+      <th>Difficulty</th>
+      <th>Solved</th>
+      <th>Question</th>
+      <th>Date</th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +41,10 @@ td {
         <h4 style="display:table-cell;">
           <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         </h4>
+      </td>
+      <td>
+        <span class="sort-value" style="display: none;">{{ page.add_date }}</span>
+        <span class="post-meta">{{ page.add_date }}</span>
       </td>
     </tr>
     {% endif %}

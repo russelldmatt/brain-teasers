@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Drunken Square"
 difficulty: 6
+add_date: 2016-01-31
 category: brain-teaser
 tags:
 - question

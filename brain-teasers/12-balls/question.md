@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "12 balls"
 difficulty: 5
+add_date: 2016-07-15
 category: brain-teaser
 tags:
 - question

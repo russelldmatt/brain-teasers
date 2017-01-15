@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Crossing ladders"
 difficulty: 2
+add_date: 2016-01-17
 category: brain-teaser
 tags:
 - question

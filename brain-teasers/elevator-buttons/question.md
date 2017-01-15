@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Elevator Buttons"
 difficulty: 5
+add_date: 2016-05-26
 category: brain-teaser
 tags:
 - question

@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Neurotic Basketball Player"
 difficulty: 6
+add_date: 2016-01-17
 category: brain-teaser
 tags:
 - question

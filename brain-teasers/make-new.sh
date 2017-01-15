@@ -8,6 +8,7 @@ fi
 question_name="$1"
 difficulty=$2
 dir_name=$(echo $question_name | tr '[A-Z]' '[a-z]' | tr ' ' '-')
+today=$(date +"%Y-%m-%d")
 
 mkdir $dir_name
 
@@ -16,6 +17,7 @@ echo "---
 layout: brain-teaser
 title:  \"$question_name\"
 difficulty: ${difficulty}
+add_date: $today
 category: brain-teaser
 tags:
 - question

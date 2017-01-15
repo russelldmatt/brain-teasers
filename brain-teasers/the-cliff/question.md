@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "The Cliff"
 difficulty: 5
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

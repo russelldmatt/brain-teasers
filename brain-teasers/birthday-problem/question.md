@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Birthday Problem"
 difficulty: 3
+add_date: 2016-05-26
 category: brain-teaser
 tags:
 - question

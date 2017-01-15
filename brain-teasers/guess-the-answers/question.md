@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Guess the Answers"
 difficulty: 7
+add_date: 2016-05-03
 category: brain-teaser
 tags:
 - question

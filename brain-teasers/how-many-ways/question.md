@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "How many ways"
 difficulty: 1
+add_date: 2016-08-08
 category: brain-teaser
 date: 2016-08-08
 tags:

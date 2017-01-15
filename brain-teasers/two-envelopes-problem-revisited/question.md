@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Two envelopes problem revisited"
 difficulty: 9
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

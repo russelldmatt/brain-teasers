@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "You vs. Train"
 difficulty: 1
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Tic Tac Toe"
 difficulty: 8
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

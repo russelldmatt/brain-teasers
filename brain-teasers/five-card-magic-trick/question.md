@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Five Card Magic Trick"
 difficulty: 6
+add_date: 2017-01-08
 category: brain-teaser
 tags:
 - question

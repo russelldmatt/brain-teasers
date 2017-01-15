@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Lockers"
 difficulty: 4
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

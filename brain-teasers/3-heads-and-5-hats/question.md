@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "3 Heads and 5 Hats"
 difficulty: 4
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

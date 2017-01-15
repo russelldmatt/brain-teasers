@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Circular Prisoners"
 difficulty: 8
+add_date: 2016-07-18
 category: brain-teaser
 tags:
 - question

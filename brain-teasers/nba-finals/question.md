@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "NBA Finals"
 difficulty: 3
+add_date: 2016-08-08
 category: brain-teaser
 date: 2016-08-08
 tags:

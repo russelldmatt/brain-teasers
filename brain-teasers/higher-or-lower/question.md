@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Higher or Lower"
 difficulty: 8
+add_date: 2016-02-06
 category: brain-teaser
 tags:
 - question

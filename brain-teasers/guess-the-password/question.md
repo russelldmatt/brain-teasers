@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Guess the Password"
 difficulty: 3
+add_date: 2016-07-15
 category: brain-teaser
 tags:
 - question

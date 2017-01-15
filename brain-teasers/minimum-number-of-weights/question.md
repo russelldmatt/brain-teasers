@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Minimum number of weights"
 difficulty: 4
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

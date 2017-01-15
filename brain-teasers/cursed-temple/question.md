@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Cursed Temple"
 difficulty: 2
+add_date: 2016-02-28
 category: brain-teaser
 tags:
 - question

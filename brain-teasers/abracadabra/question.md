@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "abracadabra"
 difficulty: 7
+add_date: 2016-01-30
 category: brain-teaser
 tags:
 - question

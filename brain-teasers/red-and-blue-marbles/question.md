@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Red and Blue Marbles"
 difficulty: 2
+add_date: 2016-07-15
 category: brain-teaser
 tags:
 - question

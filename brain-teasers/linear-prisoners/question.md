@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Linear Prisoners"
 difficulty: 4
+add_date: 2016-04-30
 category: brain-teaser
 tags:
 - question

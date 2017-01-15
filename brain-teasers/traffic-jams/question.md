@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Traffic Jams"
 difficulty: 4
+add_date: 2016-02-06
 category: brain-teaser
 tags:
 - question

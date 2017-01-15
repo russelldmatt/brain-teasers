@@ -2,6 +2,7 @@
 layout: brain-teaser
 title:  "Reverse Birthday Problem"
 difficulty: 6
+add_date: 2016-05-26
 category: brain-teaser
 tags:
 - question
