@@ -6,3 +6,20 @@ layout: default
 
 {{ content }}
 
+<div id="disqus_thread"></div>
+<script>
+
+ var disqus_config = function () {
+     this.page.url = {{ page.url }};  // Replace PAGE_URL with your page's canonical URL variable
+     /* var disqus_developer = 1; // Comment out when the site is live*/
+     this.page.identifier = {{ page.url }};
+ };
+
+ (function() { // DON'T EDIT BELOW THIS LINE
+     var d = document, s = d.createElement('script');
+     s.src = '//brainteasers-io.disqus.com/embed.js';
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+
