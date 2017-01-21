@@ -11,7 +11,7 @@ source: <a href="https://fivethirtyeight.com/features/everythings-mixed-up-can-y
 
 ---
 
-From "The Riddler" (link above):
+From "The Riddler":
 
 > From Larry Peranich, a rock-solid probability problem:
 
