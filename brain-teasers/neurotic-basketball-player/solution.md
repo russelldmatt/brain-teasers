@@ -47,7 +47,6 @@ print ps
 print prob_makes_it(ps)
 {% endhighlight %}
 
-
 ## Using PDF w/Computer ##
 {% highlight python %}
 import numpy as np
