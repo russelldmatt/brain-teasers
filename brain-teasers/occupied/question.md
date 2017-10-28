@@ -6,6 +6,7 @@ add_date: 2017-10-24
 category: brain-teaser
 tags:
 - question
+- solved
 source: <a href="https://fivethirtyeight.com/features/is-this-bathroom-occupied/">The Riddler</a>
 
 ---
