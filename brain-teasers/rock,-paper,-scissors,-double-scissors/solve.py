@@ -14,7 +14,7 @@ def ev1(prob1, prob2):
 def derivatives(x, f, delta):
     # print "fx:", f(x)
     for i in range(len(x)):
-        other_non_zero_entries = [z for (j, z) in enumerate(x) if j <> i and z <> 0]
+        other_non_zero_entries = [z for (j, z) in enumerate(x) if j != i and z != 0]
         n_other_non_zero_entries = len(other_non_zero_entries)
         if n_other_non_zero_entries == 0:
             delta = 0
@@ -23,14 +23,14 @@ def derivatives(x, f, delta):
             delta = min(min(delta, 1 - x[i]), min_other_non_zero_entries * n_other_non_zero_entries)
         y = [ p + delta
               if j == i
-              else (p - delta / n_other_non_zero_entries if p <> 0 else p)
+              else (p - delta / n_other_non_zero_entries if p != 0 else p)
               for (j, p) in enumerate(x) ]
         # print i, y
         assert(abs(sum(y) - 1.) < 0.00001)
         df = f(y) - f(x)
         # print f(y), df
         if df > 0:
-            print "found better strat"
+            print("found better strat")
             return y
     return x
 
@@ -41,7 +41,7 @@ prob2 = [0, 0, 1., 0]
 # print derivatives(prob2, lambda prob2: 1 - ev1(prob1, prob2), 0.01)
 # print derivatives(prob1, lambda prob1: ev1(prob1, prob2), 0.01)
 
-print ev1(prob1, prob2)
+print(ev1(prob1, prob2))
 
 delta = 0.03
 
@@ -90,7 +90,7 @@ def best_response(prob1, delta):
             if ev < worst_ev: best_response = prob2
             worst_ev = min(ev, worst_ev)
         except:
-            print "failed"
+            print("failed")
     return (worst_ev, best_response)
 
 def best_response(prob1, delta):
@@ -102,21 +102,21 @@ def best_response(prob1, delta):
             if ev < worst_ev: best_response = prob2
             worst_ev = min(ev, worst_ev)
         except:
-            print "failed"
+            print("failed")
     return (worst_ev, best_response)
 
 def brute_force(delta): 
     best_ev = 0
     for prob1 in all_strategies_that_sum_to_one([0, 0, 0], delta):
         (worst_ev, best_prob2) = best_response(prob1, delta)
-        print "ev1 of:", worst_ev, "with strat of", prob1, "and response of", best_prob2
+        print("ev1 of:", worst_ev, "with strat of", prob1, "and response of", best_prob2)
         if worst_ev > best_ev:
-            print "----------------"
-            print "best strat so far for p1:"
-            print "ev1:", worst_ev
-            print "prob1", prob1
-            print "best response (prob2):", best_prob2
-            print "----------------"
+            print("----------------")
+            print("best strat so far for p1:")
+            print("ev1:", worst_ev)
+            print("prob1", prob1)
+            print("best response (prob2):", best_prob2)
+            print("----------------")
             best_ev = worst_ev
         
 delta = 0.01
