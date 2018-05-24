@@ -7,7 +7,7 @@ tags: solution
 ---
 
 This is a very pretty problem.  It's also fairly tricky.  If you said
-the answer was $2^{n-1}$ that's not correct!  If you want, stop
+the answer was $$2^{n-1}$$, that's not correct!  If you want, stop
 reading and try a larger n.  If you don't beleive me, for n = 21,
 there are 6196 regions!  See, just count them up:
 
@@ -223,7 +223,7 @@ there are 6196 regions!  See, just count them up:
 <line x1="101.11766936394412" y1="383.54419352549974" x2="299.4544155296241" y2="56.21078258937297" stroke="blue" stroke-width="1"></line>
 <line x1="184.96903484661237" y1="60.86784099149375" x2="299.4544155296241" y2="56.21078258937297" stroke="blue" stroke-width="1"></line></svg>
 
-I highly doubt I'll do a better job of explaining the solution to this problem than 3blue1brown, so probably just go watch this video:
+I highly doubt I'll do a better job of explaining the solution to this problem than [3blue1brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw), so probably just go watch this video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K8P8uFahAgc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
