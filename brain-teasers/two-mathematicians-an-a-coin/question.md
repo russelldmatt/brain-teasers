@@ -10,6 +10,8 @@ tags:
 
 ---
 
+<img src="angry-king.png" style="width: 250px;"/>
+
 A king is angry at two mathematicians, so he decrees the following
 punishment. The mathematicians will be imprisoned in towers at
 opposite ends of the kingdom. Each morning, a guard at each tower will
