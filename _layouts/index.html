@@ -6,70 +6,71 @@ layout: default
 
 <div class="home">
 
-<style type="text/css" media="screen">
-td {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-</style>
-<table id="main-table" class="tablesorter table table-striped table-hover table-condensed">
-  <thead>
-    <tr style="font-size: 14px;">
-      <th>Difficulty</th>
-      <th>Solved</th>
-      <th>Question</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% assign show_hidden = page.show_hidden %}
-    {% assign pages = site.pages | sort:'difficulty' %}
-    {% for page in pages %}
-    {% if (page.category == "brain-teaser" and page.tags contains "question") %}
-    {% if page.hidden == show_hidden %}
-    <tr>
-      <td>
-        <span class="sort-value" style="display: none;">{{ page.difficulty }}</span>
-        {% include stars.html difficulty=page.difficulty %}
-      </td>
-      <td>
-        <span class="sort-value" style="display: none;">{% if page.tags contains "solved" %}1{% else %}0{% endif %}</span>
-        {% if page.tags contains "solved" %}<img src="check.png" width="20px">{% else %}{% endif %}
-      </td>
-      <td>
-        <span class="sort-value" style="display: none;">{{ page.title }}</span>
-        <h4 style="display:table-cell;">
-          <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-        </h4>
-      </td>
-      <td>
-        <span class="sort-value" style="display: none;">{{ page.add_date }}</span>
-        <span class="post-meta">{{ page.add_date }}</span>
-      </td>
-    </tr>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-  </tbody>
-</table>
+    <style type="text/css" media="screen">
+     td {
+	 padding-left: 5px;
+	 padding-right: 5px;
+     }
+    </style>
+    <table id="main-table" class="tablesorter table table-striped table-hover table-condensed">
+	<thead>
+	    <tr style="font-size: 14px;">
+		<th>Difficulty</th>
+		<th>Solved</th>
+		<th>Question</th>
+		<th>Date</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    {% assign show_hidden = page.show_hidden %}
+	    {% assign pages = site.pages | sort:'difficulty' %}
+	    {% for page in pages %}
+	    {% if (page.category == "brain-teaser" and page.tags contains "question") %}
+	    {% if page.hidden == show_hidden %}
+	    <tr>
+		<td>
+		    <span class="sort-value" style="display: none;">{{ page.difficulty }}</span>
+		    {% include stars.html difficulty=page.difficulty %}
+		</td>
+		<td>
+		    <span class="sort-value" style="display: none;">{% if page.tags contains "solved" %}1{% else %}0{% endif %}</span>
+		    {% if page.tags contains "solved" %}<img src="check.png" width="20px">{% else %}{% endif %}
+		</td>
+		<td>
+		    <span class="sort-value" style="display: none;">{{ page.title }}</span>
+		    <h4 style="display:table-cell;">
+			<a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+		    </h4>
+		</td>
+		<td>
+		    <span class="sort-value" style="display: none;">{{ page.add_date }}</span>
+		    <span class="post-meta">{{ page.add_date }}</span>
+		</td>
+	    </tr>
+	    {% endif %}
+	    {% endif %}
+	    {% endfor %}
+	</tbody>
+    </table>
 
-Other recommended sites:
-<ul>
-  <li>
-    <a href="https://fivethirtyeight.com/tag/the-riddler/">
-    <img width="20px" src="https://s0.wp.com/wp-content/themes/vip/espn-fivethirtyeight/assets/images/logo-fox-head-color.svg">
-    538's The Riddler</a>
-  </li>
-  <li>
-    <a href="https://www.ocf.berkeley.edu/~wwu/riddles/intro.shtml">wu : riddles</a>
-  </li>
-  <li>
-    <a href="http://www.puzzle.dse.nl/teasers/index_us.html">Ultimate Puzzle Size</a>
-  </li>
-  <li>
-    Mosteller Fifty Challenging Problems in Probability 
-  </li>
-</ul>
+    Other recommended sites:
+    <ul>
+	<li>
+	    <a href="https://fivethirtyeight.com/tag/the-riddler/">
+		<img width="20px" src="https://s0.wp.com/wp-content/themes/vip/espn-fivethirtyeight/assets/images/logo-fox-head-color.svg">
+		538's The Riddler</a>
+		
+	</li>
+	<li>
+	    <a href="https://www.ocf.berkeley.edu/~wwu/riddles/intro.shtml">wu : riddles</a>
+	</li>
+	<li>
+	    <a href="http://www.puzzle.dse.nl/teasers/index_us.html">Ultimate Puzzle Size</a>
+	</li>
+	<li>
+	    Mosteller Fifty Challenging Problems in Probability 
+	</li>
+    </ul>
 
 </div>
 
