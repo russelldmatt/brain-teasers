@@ -10,7 +10,7 @@ tags:
 
 ---
 
-This is a somewhat famous problem, knows as Moser's circle problem:
+This is a somewhat famous problem, known as Moser's circle problem:
 
 Here's Wolfram's formulation:
 > Determine the number of pieces into which a circle is divided if n
