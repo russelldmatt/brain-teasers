@@ -6,11 +6,7 @@ permalink: /about/
 
 ## About ##
 
-This site is:
-
-- a place to collect interesting brain teasers that I've heard over the years and
-
-- a way to learn how to write a static website (using jekyll & github pages, FWIW).
+This site is a compilation of interesting mathematical brain teasers.
 
 A few disclaimers:
 

@@ -9,11 +9,10 @@
 title: Brain Teasers
 email: russell.d.matt@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  A collection of interesting brain teasers that I've heard over the years
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://brainteasers.io" # the base hostname & protocol for your site
 twitter_username: 
-github_username:  
+github_username: russelldmatt
 
 # Build settings
 markdown: kramdown
