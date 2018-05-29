@@ -235,5 +235,30 @@ $$
 
 $${n \choose 2}$$ is the number of line segments connecting every pair of $$n$$ points, and $${n \choose 4}$$ is the number of intersections of those lines (not counting any intersection points on the circumference of the circle).
 
+<hr><br>
 
+Here's an interactive version of the picture above.  Move the slider
+to change the number of points on the circle.  It's backed by
+[this](https://beta.observablehq.com/@russelldmatt/mosers-circle-problem)
+Observable notebook.
+
+<div id="slider" style="width:500px"></div>
+<div id="svg"></div>
+<div id="chart"></div>
+
+<script type="module">
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+  import notebook from "https://api.observablehq.com/@russelldmatt/mosers-circle-problem.js?key=bba1c582e63a515a";
+  const renders = {
+    "viewof N": "#slider",
+    "svg": "#svg",
+    "exact_chart": "#chart",
+  };
+  Runtime.load(notebook, (variable) => {
+    const selector = renders[variable.name];
+    if (selector) {
+      return new Inspector(document.querySelector(selector));
+    }
+  });
+</script>
 
