@@ -14,7 +14,8 @@ layout: default
     </style>
     <table id="main-table" class="tablesorter table table-striped table-hover table-condensed">
 	<thead>
-	    <tr style="font-size: 14px;">
+	  <tr style="font-size: 14px;">
+		<th>Rank</th>
 		<th>Difficulty</th>
 		<th>Solved</th>
 		<th>Question</th>
@@ -22,12 +23,18 @@ layout: default
 	    </tr>
 	</thead>
 	<tbody>
+	    {% assign i = 0 %}
 	    {% assign show_hidden = page.show_hidden %}
 	    {% assign pages = site.pages | sort:'difficulty' %}
 	    {% for page in pages %}
 	    {% if (page.category == "brain-teaser" and page.tags contains "question") %}
 	    {% if page.hidden == show_hidden %}
+	    {% assign i = i | plus: 1 %}
 	    <tr>
+		<td>
+		  <span class="sort-value" style="display: none;">{{ i }}</span>
+		  {{ i }}
+		</td>
 		<td>
 		    <span class="sort-value" style="display: none;">{{ page.difficulty }}</span>
 		    {% include stars.html difficulty=page.difficulty %}
