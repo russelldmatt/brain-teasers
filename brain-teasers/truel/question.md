@@ -6,6 +6,7 @@ add_date: 2016-01-31
 category: brain-teaser
 tags:
 - question
+- solved
 source: <a href="http://www.puzzle.dse.nl/teasers/index_us.html#henk_helma">Ultimate Puzzle Size</a>
 
 ---
