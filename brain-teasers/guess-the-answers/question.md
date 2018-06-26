@@ -15,4 +15,4 @@ I have 100 yes or no questions written down, along with their answers.  I'm not 
 
 You can submit a new list of 100 guesses as many times as you need.
 
-What's the minumum number of submissions you need to figure out all the correct answers?
+What's the minimum number of submissions you need to figure out all the correct answers?
