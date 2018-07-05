@@ -1,0 +1,50 @@
+---
+layout: solution
+title:  "Linear prisoners with more hats"
+category: brain-teaser
+tags: solution
+
+---
+
+Maybe even more surprisingly than last time, $$9 + \frac{1}{n}$$ of
+them, on average, can survive, and 9 will *still definitely* survive
+(i.e. you can definitely save the same number as if there were only 2
+hat colors).  So, "as a function of $$n$$" is a bit misleading since
+the answer doesn't actually depend on $$n$$, but I didn't want to give
+away the answer.  How can this be?
+
+Here's the strategy:
+
+Before the game begins, the prisoners agree on a value, between $$0$$
+and $$n-1$$, for each hat color.
+
+Once the game begins, each prisoner computes the sum of the value of
+all the hats in front of them mod $$n$$.  Let's call this number
+$$S$$.  So, for example, if there were 3 hat colors, red, white, and
+blue, and we've assigned them values 0, 1 and 2, respectively, and I
+see 3 red hats, 5 white hats, and 1 blue hat in front of me, the sum of
+the hat values would be $$3(0) + 5(1) + 1(2) = 7$$ and then that mod
+$$n$$ is $$S = 7 \% 3 = 1$$.
+
+The prisoner in the back of the line, who has to guess first, again
+can't do better than random, so his goal is to transfer as much
+information to the people in front of him as possible.  So, what he
+will do is convey his number $$S$$ by guessing the hat color that has
+the same value as (his) $$S$$.
+
+Then, for each prisoner from then on, they can compute their hat color
+by subtracting the $$S$$ of the person behind them with their $$S$$
+(mod $$n$$).  For example, if $$n = 3$$ and if the person behind me
+has an $$S = 1$$ and my $$S = 0$$ then the value of my hat must be
+$$1$$.  If my $$S = 2$$ then the value of my hat must be $$2$$ ($$(1 - 2) \% 3 = 2$$).  If my $$S = 1$$ then the value of my hat must be $$0$$.
+
+So, it's clear how the second the last person in line can correctly
+compute his or her own hat color since they know the value of $$S$$
+for the last person in line.  The third to last person in line will be
+able to compute the $$S$$ value for the second to last person in line
+once that person (correctly) guesses their own hat color.  And so on
+down the line.
+
+Aside: If you think about the strategy when there were 2 hats, it was
+actually the same as this strategy since you can think of computing
+even and odd as the same as summing binary numbers, mod 2.

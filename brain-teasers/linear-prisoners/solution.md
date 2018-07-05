@@ -6,7 +6,7 @@ tags: solution
 
 ---
 
-Surprisingly, 9.5 of them (on average) can survive.  And 9 will
+Surprisingly, 9.5 of them, on average, can survive, and 9 will
 *definitely* survive.
 
 The prisoner in the back of the line, who has to guess the color of
