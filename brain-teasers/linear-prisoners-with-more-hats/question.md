@@ -1,16 +1,31 @@
 ---
 layout: brain-teaser
-title:  "Linear prisoners (with more hats)"
+title:  "Linear prisoners... with more hats"
 difficulty: 5
 add_date: 2018-07-05
 category: brain-teaser
+source: mayank mehta (or maybe his brother?)
 tags:
 - question
 - solved
 
 ---
 
-<img src="pileohats.jpg" style="width:450px;"/>
+<style>
+.image-blurred {
+    background-image: url('./hats.jpg');
+	width: 233px;
+    height: 350px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+	background-repeat: no-repeat;
+    background-size: 233px 350px;
+    box-shadow: 0 0 2px 2px white inset;
+	margin: auto;
+	margin-bottom: 10px;
+}
+</style>
+
+<div class="image-blurred" style="display:block;"></div>
 
 This problem is an extension of a previous problem [Linear Prisoners](../linear-prisoners/question.html), so if you want to start with a simpler problem, go there.
 
