@@ -1,7 +1,7 @@
 ---
 layout: brain-teaser
 title:  "Prison with Levers"
-difficulty: 4
+difficulty: 6
 add_date: 2017-10-26
 category: brain-teaser
 tags:
