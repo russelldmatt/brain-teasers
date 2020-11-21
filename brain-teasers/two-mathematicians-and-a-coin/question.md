@@ -1,6 +1,6 @@
 ---
 layout: brain-teaser
-title:  "Two Mathematicians an a Coin"
+title:  "Two Mathematicians and a Coin"
 difficulty: 5
 add_date: 2018-05-24
 category: brain-teaser

@@ -1,6 +1,6 @@
 ---
 layout: solution
-title:  "Two Mathematicians an a Coin"
+title:  "Two Mathematicians and a Coin"
 category: brain-teaser
 tags: solution
 
