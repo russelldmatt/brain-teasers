@@ -1,2 +1,2 @@
 - how many zeros are at the end of n!
-
+- https://www.glassdoor.com/Interview/You-have-a-100-coins-laying-flat-on-a-table-each-with-a-head-side-and-a-tail-side-10-of-them-are-heads-up-90-are-tails-QTN_290837.htm
