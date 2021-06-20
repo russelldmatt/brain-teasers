@@ -11,6 +11,10 @@ source: kmason
 
 ---
 
+<div style="display: flex; justify-content: center; margin-bottom: 15px">
+<img src="dice.jpg" alt="switch" width="250px">
+</div>
+
 Imagine that you have set of 13 dice.  The number of sides on each die corresponds to a prime number less than 42.  So, using the convention that "dn" means a die with "n" sides (all with equal probability), your set of available dice are:
 
 d2, d3, d5, d7, d11, d13, d17, d19, d23, d29, d31, d37, and d41
