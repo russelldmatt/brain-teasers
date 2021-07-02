@@ -1,0 +1,17 @@
+I"·<p>Let \(g(n,k)\) be the number of ways you can put n people into k buckets:</p>
+
+\[g(n,k) = k^n\]
+
+<p>Let \(f(n,k)\) be the number of ways you can put n people into k buckets, <em>using all k buckets</em>.</p>
+
+\[f(n,k) = g(n,k) - \sum_{i=1}^{k-1}{ k \choose i }f(n,i)\]
+
+<p>In words, the number of ways you can put n people into k buckets <em>using all k buckets</em>, is the number of ways you can put n people into k buckets, minus the number of ways you can put n people into exactly 1 bucket (times the number of ways you can choose that one bucket out of k buckets), minus the number of ways you can put n people into exactly 2 buckets (times the number of ways you can choose those two buckets out of k buckets), etcâ€¦</p>
+
+<p>Now that we have \(g\) and \(f\), the original problem just becomes:</p>
+
+<p>Find the smallest \(N\), s.t. \(f(N, 365) &gt; g(N, 365) / 2\).</p>
+
+<p>Using a computer, I found the smallest \(N\) to be \(2287\).</p>
+
+:ET

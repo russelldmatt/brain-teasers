@@ -1,0 +1,81 @@
+I"#"<p>6.859787</p>
+
+<p>The main difficulty with this problem is finding a way to keep it
+computationally tractable.  I found a pretty bad way to do this, where
+the problem was <em>just barely</em> tractable but a friend suggested a much
+better way, which I’ll describe here:</p>
+
+<p>There are 12 classes of figurines, the partridge, of which there’s
+only one, up to the 12 drummers.  Let’s label these ornaments using a
+subscript that describes how many of that type of ornament there are.
+So \(o_{12}\) would be a drummer (since there are 12), and \(o_{11}\)
+would be a piper (since there are 11), and so on until \(o_2\).  We
+won’t label the partridge this way since it’s special.</p>
+
+<ul>
+  <li>Start with just the partridge figurine.</li>
+  <li>Next add both of the \(o_2\) ornaments.</li>
+  <li>Next add all three \(o_3\) ornaments.</li>
+  <li>And so on.</li>
+</ul>
+
+<p>At each step, we will update a 13 x 78 matrix that represents the
+combination of the maximum number of any ornament type to the left of
+the partridge (13 possibilities) as well as the current position of
+the partridge (78 possibilities).  In each cell, we will keep track of
+the number of ways that combination can happen.</p>
+
+<p>Here’s the code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">math</span> 
+
+<span class="c1"># num_ways[max_figurine_of_one_type_before_partridge, partridge_position] = num_ways given those two facts
+</span><span class="n">num_figurine_types</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">num_ways</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_figurine_types</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">num_ways</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># [add] adds "one type" of figurine.
+# [N] is how many of that figurine type there are
+# [num_ways] is described above and represents the state before adding this figurine type
+</span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">num_ways</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span> <span class="o">=</span> <span class="n">num_ways</span><span class="p">.</span><span class="n">shape</span>
+    <span class="n">num_ways_</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">+</span> <span class="n">N</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">num_before</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">num_after</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">num_before</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">comb</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">num_before</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">prev_num_before</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+            <span class="n">prev_num_ways</span> <span class="o">=</span> <span class="n">num_ways</span><span class="p">[</span><span class="n">prev_num_before</span><span class="p">]</span>
+            <span class="n">max_num_before</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num_before</span><span class="p">,</span> <span class="n">prev_num_before</span><span class="p">)</span>
+            <span class="n">new_num_ways</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pad</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">prev_num_ways</span><span class="p">,</span> <span class="p">(</span><span class="n">num_before</span><span class="p">,</span> <span class="n">num_after</span><span class="p">))</span>
+            <span class="n">num_ways_</span><span class="p">[</span><span class="n">max_num_before</span><span class="p">]</span> <span class="o">+=</span> <span class="n">new_num_ways</span>
+    <span class="k">return</span> <span class="n">num_ways_</span> 
+
+<span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_figurine_types</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">num_ways</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">num_ways</span><span class="p">)</span>
+
+<span class="c1"># the partridge is equally likely to land in each position, so
+# normalize so that each position (column) has the same weight.  Now
+# each column is a probability distribution function of the max number
+# of any one type of figurine to the left of the partridge given the
+# partidge is in that positon
+</span><span class="n">num_ways_by_position</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">num_ways</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pdfs</span> <span class="o">=</span> <span class="n">num_ways</span> <span class="o">/</span> <span class="n">num_ways_by_position</span>
+
+<span class="n">sum_over_positions</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">pdfs</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># pdf[i] is probability that max_figurine_of_one_type_before_partridge = i
+</span><span class="n">pdf</span> <span class="o">=</span> <span class="n">sum_over_positions</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">sum_over_positions</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"pdf:"</span><span class="p">,</span> <span class="n">pdf</span><span class="p">)</span>
+
+<span class="c1"># compute the expected value by multiplying prob[i] * i
+</span><span class="n">ev</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span> <span class="n">i</span> <span class="o">*</span> <span class="n">pdf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pdf</span><span class="p">))</span> <span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"ev:"</span><span class="p">,</span> <span class="n">ev</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And here’s the output of said code:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdf: <span class="o">[</span>0.01282051 0.04771169 0.06485704 0.07376005 0.0795385  0.08382464 0.0873028  0.09031402 0.09304028 0.09553442 0.09752237 0.09685061 0.07692308]
+ev: 6.859787373340944
+</code></pre></div></div>
+:ET

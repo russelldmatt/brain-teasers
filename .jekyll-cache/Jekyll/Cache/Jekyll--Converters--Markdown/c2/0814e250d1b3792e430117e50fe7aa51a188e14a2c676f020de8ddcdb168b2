@@ -1,0 +1,4 @@
+I"ø<p><img src="solution.jpg" style="width:400px" /></p>
+
+<p>The number of ways to get to a given vertex is the number of ways to get to the vertex to the left of it plus the number of ways to get to the vertex below it.  Work from the bottom up!</p>
+:ET

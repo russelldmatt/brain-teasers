@@ -1,0 +1,7 @@
+I"³<p>\(f(N)\) is the number of groups for \(N\) cars.</p>
+
+\[f(0) = 0 \\
+f(N) = 1 + \frac{1}{N} \sum_{i=0}^{N-1} f(i)\]
+
+<p><img src="graph.png" width="300px" align="center" /></p>
+:ET

@@ -1,0 +1,18 @@
+I"�<p>Let \(e\) be the probability that the species goes extinct.  This is also the probability that one microorganism’s family line goes extinct.</p>
+
+\[e = (1-p) + pe^2\]
+
+<p>There’s a \(1-p\) chance that the first organism does not multiply, in which case the species is extinct.  With probability \(p\), the organism multiplies and there are now two microorganisms.  The probability that they both go extinct is simply \(e^2\).</p>
+
+<p>Solving for \(e\) gives two solutions:</p>
+
+\[e =
+  \begin{cases}
+    1 \\
+    \frac{1 - p}{p}
+  \end{cases}\]
+
+<p>If \(p &lt;= \frac{1}{2}\), both solutions are \(&gt;= 1\), meaning that the species will definitely go extinct.  If \(p &gt; \frac{1}{2}\), the solution \(\frac{1 - p}{p}\) gives values for \(e\) that are \(&lt; 1\), meaning the species has a chance.</p>
+
+<p>For a better explanation of how to know which solution for \(e\) to choose based on the value of \(p\), look <a href="http://www.laurentlessard.com/bookproofs/microorganism-multiplication/">here</a>.</p>
+:ET

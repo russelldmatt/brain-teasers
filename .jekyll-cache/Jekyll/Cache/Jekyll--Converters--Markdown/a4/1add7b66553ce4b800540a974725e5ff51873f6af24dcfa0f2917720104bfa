@@ -1,0 +1,106 @@
+I"�=<p>2/3</p>
+
+<h2 id="using-simulation">Using Simulation</h2>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">one</span><span class="p">(</span><span class="n">num_shots</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_baskets</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">num_shots</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">made_shot</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">num_baskets</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">made_shot</span><span class="p">:</span>
+            <span class="n">num_baskets</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1"># last shot
+</span>    <span class="n">made_last_shot</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">num_baskets</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">made_last_shot</span><span class="p">:</span>
+        <span class="n">num_baskets</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">num_baskets</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># re-run the sim because in reality he did make last (99th) shot
+</span>        <span class="k">return</span> <span class="n">one</span><span class="p">(</span><span class="n">num_shots</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">num_shots</span><span class="p">,</span> <span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">buckets</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_shots</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">buckets</span><span class="p">[</span><span class="n">one</span><span class="p">(</span><span class="n">num_shots</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">buckets</span> <span class="o">/</span> <span class="n">num_sims</span>
+
+<span class="k">def</span> <span class="nf">prob_makes_it</span><span class="p">(</span><span class="n">ps</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ps</span><span class="p">)])</span>
+    <span class="n">prob_makes_it</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ps</span> <span class="o">*</span> <span class="n">prob_makes_it</span><span class="p">)</span>
+
+<span class="n">ps</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">ps</span>
+<span class="k">print</span> <span class="n">prob_makes_it</span><span class="p">(</span><span class="n">ps</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="using-pdf-wcomputer">Using PDF w/Computer</h2>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">prob_makes_it</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">new_ps</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">ps</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prob_makes_it</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">ps</span> <span class="o">*</span> <span class="n">prob_makes_it</span><span class="p">)</span>
+    <span class="n">new_xs</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">new_ps</span><span class="p">,</span> <span class="n">new_xs</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">makes_it</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">new_ps</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span>
+    <span class="n">new_xs</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">new_ps</span><span class="p">,</span> <span class="n">new_xs</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">adjust_because_he_made_it</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">prob_makes_it</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="p">(</span><span class="n">prob_makes_it</span> <span class="o">*</span> <span class="n">ps</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">ps</span>
+
+<span class="k">def</span> <span class="nf">prob_makes_it</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">prob_makes_it</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ps</span> <span class="o">*</span> <span class="n">prob_makes_it</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">pretty_print</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print_array</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span> <span class="k">print</span> <span class="s">"{:0.2f}</span><span class="se">\t</span><span class="s">"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+        <span class="k">print</span> <span class="s">""</span>
+    <span class="k">print</span> <span class="s">"after {} shots prob makes it {}:"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">prob_makes_it</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
+    <span class="n">print_array</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+    <span class="n">print_array</span><span class="p">(</span><span class="n">ps</span><span class="p">)</span>
+
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">pretty_print</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="n">pretty_print</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="n">pretty_print</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">98</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="n">ps</span> <span class="o">=</span> <span class="n">adjust_because_he_made_it</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">=</span> <span class="n">makes_it</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="n">pretty_print</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="using-intuition">Using intuition</h2>
+
+<p>The probability of making a shot doesn’t change from one shot to the next.  Let’s say he’s currently made n out of t shots.</p>
+
+\[p_{make it} = \frac{n}{t}\]
+
+<p>At the next step</p>
+
+\[p_{make it} = \frac{n}{t} \frac{n+1}{t+1} + \frac{t - n}{t} \frac{n}{t+1} \\
+p_{make it} = \frac{n(n+1+t-n)}{t(t+1)} \\
+p_{make it} = \frac{n(1+t)}{t(t+1)} \\
+p_{make it} = \frac{n}{t} \\\]
+
+<p>Also, it doesn’t feel like the order of the baskets should matter.  If we obsever the 99th shot, is that any different than if we observed the 3rd shot?  Let’s guess no.</p>
+
+<p>Well, if we observed the third shot, we <em>know</em> that he would be 2/3 to make the next shot (since we observed him making 2 of 3 baskets so far).  And if that was the case, and we observed nothing until the 100th shot, we would guess that he’s 2/3 to make it as well.  So, assuming that nothing is different about observing the 99th shot vs. the 3rd shot, he should be 2/3 to make the 100th shot.</p>
+:ET

@@ -1,0 +1,11 @@
+I"·<p>You have n coins in a row in some beginning state of heads/tails. Define a process as follows:</p>
+
+<p>If you have k&gt;0 heads, flip over the coin in the kth position from the left.
+If you have k=0 heads, stop. Otherwise repeat.</p>
+
+<p>For example, for THT, the process goes
+THT -&gt; HHT -&gt; HTT -&gt; TTT</p>
+
+<p>For fixed n, calculate the average number of steps it takes to
+terminate over all 2^n possible beginning states.</p>
+:ET

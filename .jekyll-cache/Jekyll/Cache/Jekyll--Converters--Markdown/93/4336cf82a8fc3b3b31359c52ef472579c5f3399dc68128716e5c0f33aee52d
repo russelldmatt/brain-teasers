@@ -1,0 +1,21 @@
+I"�<p>Lots of ways to think about this one.  I’ll describe two:</p>
+
+<h3 id="recursive">Recursive:</h3>
+
+<p>Define \(f(n, k)\) as the number of ways that exactly \(k\) elements are in their correct position out of a total of \(n\) elements.</p>
+
+\[f(n, k) =
+  \begin{cases}
+    1 &amp; \text{if $n = k$} \\
+    {n \choose k} \big[ (n-k)! - \sum_{i=1}^{n-k} f(n-k, i) \big] &amp; \text{otherwise}
+  \end{cases}\]
+
+<p>In other words, if you want exactly \(k\) elements in their correct position, there’s \({n \choose k}\) ways to choose the \(k\) correctly positioned elements.  For each of those choices, you need the \(n-k\) elements not selected to all be in an incorrect position.  The number of ways that can happen is the total number of ways \(n-k\) elements can be arranged, \((n-k)!\), minus the number of ways that \(n-k\) can have \(1\) to \(n-k\) elements in the correct position, \(\sum_{i=1}^{n-k} f(n-k, i)\).</p>
+
+<h3 id="non-recursive">Non-recursive:</h3>
+
+<p>Define \(z(n)\) as the number of ways that <em>zero</em> elements are in their correct position out of a total of \(n\) elements.</p>
+
+\[z(n) = \sum_{i=0}^{n} (-1)^i {n \choose i } (n-i)! \\
+f(n, k) = { n \choose k } z(n-k)\]
+:ET

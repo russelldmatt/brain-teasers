@@ -1,0 +1,10 @@
+I"J<p><img src="image.png" alt="Coin flipping" width="250px" /></p>
+
+<p>We’re going to play a game with a fair coin. We’ll flip the coin, generating a sequence, until one of two sequences occurs:</p>
+
+<p>HHHH comes up (Player A wins)</p>
+
+<p>THHH comes up (Player B wins)</p>
+
+<p>What is player A’s probability of winning?</p>
+:ET

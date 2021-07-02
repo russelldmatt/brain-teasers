@@ -4,6 +4,7 @@ title:  "Robot Weightlifting"
 difficulty: 6
 add_date: 2021-06-20
 category: brain-teaser
+hidden: true
 tags:
 - question
 source: <a href=https://www.janestreet.com/puzzles/robot-weightlifting-index/>Jane Street Puzzles</a>

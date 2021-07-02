@@ -1,0 +1,6 @@
+I"\<p><img src="grid-with-blocks.png" style="width:400px" /></p>
+
+<p>You need to travel from the bottom left to the top right (from green starting point to green ending point).  You can only move up or to the right along the red lines.  You <em>cannot</em> touch the black.</p>
+
+<p>How many ways can you get from the bottom left ot the top right?</p>
+:ET

@@ -1,0 +1,20 @@
+I"�<p>I love math.  There are so many ways to phrase <a href="https://oeis.org/A002415">the answer to this question</a>.  Here are a few.</p>
+
+\[\begin{align*}
+
+f(n) &amp;= \frac{n^2(n^2-1)}{12} \\
+
+f(n) &amp;= \sum_{i=0}^{n} \sum_{j=0}^{i} j^2 \\
+
+g(n) &amp;= n \\
+h(n) &amp;= n^2 \\
+f(n) &amp;= g * h \\
+\end{align*}\]
+
+<p>where \(*\) in the last formula represents the convolution operator.</p>
+
+<p>I don’t have enough time right now to fully explain the following diagram, but here’s something in the way of a solution that most closely resembled the last formula (the convolution of the natural numbers and the square numbers).</p>
+
+<p><img src="solution.jpg" /></p>
+
+:ET

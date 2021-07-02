@@ -4,6 +4,7 @@ title:  "Figurine Figuring"
 difficulty: 7
 add_date: 2021-06-22
 category: brain-teaser
+hidden: true
 tags:
 - question
 - solved

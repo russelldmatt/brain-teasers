@@ -1,0 +1,12 @@
+I"z<p>Warning: This is not complete!</p>
+
+<p>The strategy:</p>
+
+<p>We designate one prisoner (prisoner #1) to be the only person allowed to pull the second lever down (i.e. from up to down).  Everyone else is only allowed to push the second level up, and they can only do so exactly once.</p>
+
+<p>If we could assume that the second lever starts in a down state, then prisoner #1 will announce that every prisoner has been to the room when he pulls the lever down the 100th time.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="nb">sum</span><span class="p">([</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="p">])</span> <span class="o">+</span> <span class="mi">100</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="mf">10517.737751763965</span></code></pre></figure>
+
+:ET

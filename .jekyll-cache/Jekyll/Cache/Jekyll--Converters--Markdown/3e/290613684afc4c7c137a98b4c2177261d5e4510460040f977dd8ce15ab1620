@@ -1,0 +1,13 @@
+I"y<p>A standard 52 card deck is laid out face up.</p>
+
+<ol>
+  <li>Player A picks 5 cards.</li>
+  <li>Player B picks 5 cards.</li>
+  <li>Player A may discard up to 5 cards and pick that many new face up cards.</li>
+  <li>Player B may do the same.</li>
+  <li>Player with higher poker hand wins.</li>
+</ol>
+
+<p>Would you rather be player A, or player B, or does it not matter?</p>
+
+:ET

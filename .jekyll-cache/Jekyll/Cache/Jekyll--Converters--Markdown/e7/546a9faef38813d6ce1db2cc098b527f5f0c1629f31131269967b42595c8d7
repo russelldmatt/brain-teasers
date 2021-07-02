@@ -1,0 +1,70 @@
+I"à%<p>The most straightforward way to solve this puzzle was to compute the probability distributions of the winners of each match recursively, given each swap. The most advantageous swap for the 2-seed is to swap seeds 3 and 16, which increases the 2-seedâ€™s probability of winning by 6.55795%.</p>
+
+<p><a href="bracketology.py">download code</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># each pdf is going to be a dict from player number (int) -&gt; probability of winning
+</span><span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="n">pdf1</span><span class="p">,</span> <span class="n">pdf2</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">prob1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pdf1</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">p1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">prob2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pdf2</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">p2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">prob1</span> <span class="o">*</span> <span class="n">prob2</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">/</span> <span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span><span class="p">)</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">prob1</span> <span class="o">*</span> <span class="n">prob2</span> <span class="o">*</span> <span class="n">p1</span> <span class="o">/</span> <span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span>
+
+<span class="c1"># this crazy one-liner just groups a list into pairs of elements
+# i.e. match([1,2,3,4]) = [(1,2), (3,4)]
+</span><span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="n">pdfs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">pdfs</span><span class="p">),)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># generate the final win pdf for a given player order
+</span><span class="k">def</span> <span class="nf">sim</span><span class="p">(</span><span class="n">players</span><span class="p">):</span>
+    <span class="n">pdfs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span> <span class="p">]</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c1"># each loop is one round
+</span>        <span class="n">matchups</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">pdfs</span><span class="p">)</span>
+        <span class="n">pdfs</span> <span class="o">=</span> <span class="p">[</span> <span class="n">play</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">matchups</span> <span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pdfs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pdfs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">players</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">16</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">15</span>
+<span class="p">]</span>
+
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">sim</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+<span class="n">starting_win_probability</span> <span class="o">=</span> <span class="n">pdf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="n">players</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">players</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">players</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+<span class="n">best</span> <span class="o">=</span> <span class="n">starting_win_probability</span>
+<span class="c1"># test all possible swaps of (i, j)
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="n">pdf</span> <span class="o">=</span> <span class="n">sim</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pdf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">best</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"new best:"</span><span class="p">)</span>
+            <span class="k">print</span> <span class="p">(</span><span class="s">"  swap:"</span><span class="p">,</span> <span class="p">(</span><span class="n">players</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">players</span><span class="p">[</span><span class="n">j</span><span class="p">])),</span>
+            <span class="k">print</span> <span class="p">(</span><span class="s">"  probability increase:"</span><span class="p">,</span> <span class="n">pdf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">pdf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">starting_win_probability</span><span class="p">)</span>
+            <span class="n">best</span> <span class="o">=</span> <span class="n">pdf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+:ET

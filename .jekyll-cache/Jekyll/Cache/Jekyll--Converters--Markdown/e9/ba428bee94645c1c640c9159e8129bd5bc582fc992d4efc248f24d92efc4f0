@@ -1,0 +1,4 @@
+I"	<p>A only wins when HHHH happens in the <em>first four flips</em>.  That only happens with probability 1/16.</p>
+
+<p>The reason is that in any stream if heads and tails, THHH will always happen right before HHHH, unless HHHH happens at the start of the stream.</p>
+:ET

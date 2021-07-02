@@ -1,0 +1,90 @@
+I"�<p>I found this to be a surpisingly tricky counting problem.  The key is to figure out how to partition the space such that you don’t overcount.</p>
+
+<p>Here is one way:</p>
+
+<p>Let’s define \(f(N, k)\) as the number of ways to break \(N\) kids into <em>exactly</em> \(k\) teams.</p>
+
+<p>Total number of ways to break N kids into teams is:</p>
+
+\[f(N, 1) + f(N, 2) + f(N, 3) + ... + f(N, N)\]
+
+<p>In english, all I’m saying is the total number of ways to break N kids up into teams is the number of ways to break them up into exactly 1 team, plus the number of ways I can break them up into exactly 2 teams, and so on.  This seems fairly tri
+vial but it allows you to separate the space of teams rather nicely.</p>
+
+<p>\(f(N, 1) = 1\), which seems fairly obvious.  But what is \(f(N, 2)\)?</p>
+
+<p>Well, let’s first answer an easier question.  Call \(g(N, k)\) the number of ways you can break up N kids into k <em>named</em> groups.  So, in this problem, putting all kids in group #1 is considered different from putting all the kids in group #2.  This question has a pretty answer: since you can have \(k\) choices for each of \(N\) kids, it’s \(g(N, k) = k^N\).</p>
+
+<p>How can we relate \(g(N, 2)\) to \(f(N, 2)\)?  \(g(N, 2)\) contains groupings with a total of 2 teams and groupings with a total of 1 team.  How many groupings with only 1 team (since those shouldn’t be counted for \(f(N, 2)\))?  Well, there’s one option where all \(N\) kids are put into group #1 and there’s one option where all \(N\) kids are put into group #2.  More generally, there’s \(f(N, 1)\) ways to put \(N\) kids into exactly one group, but if there are two possible groups, which one group should we put them in - there’s \({N \choose 1}\) choices for that.</p>
+
+\[f(N, 2) = \frac{g(N, 2) - {N \choose 1} f(N, 1)}{2!} \\
+f(N, 2) = \frac{2^N - {N \choose 1} f(N, 1)}{2!}\]
+
+<p>Why do we need to divide by \(2!\) at the end?  Since the teams are named in \(g\), but not in \(f\), we will overcount groups of \(2\) by a factor of \(2!\).</p>
+
+<p>So, let’s try to compute \(f(N, 3)\) manually before generalizing to \(f(N, k)\).</p>
+
+\[f(N, 3) = \frac{3^N - {N \choose 2} f(N, 2) 2! - {N \choose 1} f(N, 1)}{3!}\]
+
+<p>More generally:</p>
+
+\[f(N, k) = \frac{k^N - \sum_{i=1}^{k-1}{N \choose i} f(N, i) i!}{k!}\]
+
+<p>Finally, the question asked how many ways can you make teams out of N kids, regardless of group size, which is just:</p>
+
+\[\sum_{k=1}^{N} f(N, k)\]
+
+<p>To double check that this looks reasonable for small N:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>N</th>
+      <th style="text-align: center">#ways</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="text-align: center">15</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="text-align: center">52</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="text-align: center">203</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td style="text-align: center">877</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td style="text-align: center">4140</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td style="text-align: center">21147</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td style="text-align: center">115975</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET
