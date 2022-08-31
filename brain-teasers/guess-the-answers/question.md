@@ -1,7 +1,7 @@
 ---
 layout: brain-teaser
 title:  "Guess the Answers"
-difficulty: 7
+difficulty: 10
 add_date: 2016-05-03
 category: brain-teaser
 tags:
