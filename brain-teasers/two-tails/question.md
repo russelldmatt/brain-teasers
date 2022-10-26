@@ -10,4 +10,4 @@ tags:
 
 ---
 
-I'm going to flip a coin until I get HH.  How many flips, on average, will it take?
+I'm going to flip a coin until I get TT.  How many flips, on average, will it take?
