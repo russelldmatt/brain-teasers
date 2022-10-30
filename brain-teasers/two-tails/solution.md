@@ -18,7 +18,7 @@ going to be tails.
 
 So here's the trick.  When you finally get TT, you know how much money you're going to win.
 - 2 flips ago, you'll have started a betting streak of TT that will have just paid off $4
-- 1 flip ago, you'll have started a betting stream of T that will have also just won, so that's $2 extra dollars.
+- 1 flip ago, you'll have started a betting streak of T that will have also just won, so that's $2 extra dollars.
 
 So when you get TT, you know you'll have just won $6.  Notice that on
 every single coin flip, you placed a new $1 fair bet.  So if you win
