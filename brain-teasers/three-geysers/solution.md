@@ -63,8 +63,10 @@ Instead of a 1x2 rectangle, we need a 1x2x3 box.  I'd attempted to draw the shap
 
 I'm not good at drawing, but also it's kind of hard to get a sense of how the *inside* of the box is colored just by looking at the outside, here's a video of the same shape but I've shunk each 1x1x1 cube so that you can effectively look inside the box:
 
-<div style="display: grid; place-items: center;">
+<div style="display: grid; place-items: center; margin-bottom: 20px;">
 	<video controls="controls" width="500" height="500" name="Video Name">
 		<source src="./rectangular-prism.mov">
 	</video>
 </div>
+
+(credit for the awesome visualization goes to Ian Henry who helped me make this using his very own https://bauble.studio/)
