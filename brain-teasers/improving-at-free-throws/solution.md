@@ -54,6 +54,7 @@ Now that we have a sense for the problem, let's attack it my systematically. Let
 | 18 | 24 | 75% |
 | 21 | 28 | 75% |
 | 24 | 32 | 75% |
+
 (and so on...)
 
 Let's write the same table, but add "number of missed shots":
