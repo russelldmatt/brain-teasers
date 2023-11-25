@@ -11,7 +11,7 @@ Update 2023-11-25: I found a new combinatorial way to think of the solution and 
 
 Let's consider the 2D case since that's the easiest to visualize and work our way up from there.
 
-In 2D, we have the x and the y dimension. For each solution, if you only consider a single dimension, it can do one of 5 things:
+In 2D, we have the x and the y dimension. For each winning line, if you only consider a single dimension, it can do one of 5 things:
 
 - constant 1
 - constant 2
@@ -19,33 +19,33 @@ In 2D, we have the x and the y dimension. For each solution, if you only conside
 - increasing
 - decreasing
 
-For example, here is the solution where x is increasing and y is a constant 3.
+For example, here is the winning line where x is increasing and y is a constant 3.
 
 <div><img src="1.jpg" class="single"></div>
 
-Here are a few more solutions, just so it's clear what I mean:
+Here are a few more winning lines, just so it's clear what I mean:
 
 <div><img src="2.jpg" class="double"></div>
 
-So we have 5 choices per dimension. We have 2 dimensions so our starting guess for how many solutions will be 5 x 5 = 25.
+So we have 5 choices per dimension. We have 2 dimensions so our starting guess for how many winning lines will be 5 x 5 = 25.
 
-But wait, some of these solutions aren't valid. If all the dimensions are constant, that's not a valid tic-tac-toe solution. At least one dimension must be varying otherwise you just get a single square. For example, here is the invalid solution where x is constant 1 and y is constant 2.
+But wait, some of these winning lines aren't valid. If all the dimensions are constant, that's not a valid tic-tac-toe winning line. At least one dimension must be varying otherwise you just get a single square. For example, here is the invalid winning line where x is constant 1 and y is constant 2.
 
 <div><img src="3.jpg" class="single"></div>
 
-Luckily there's a really easy way to count all the invalid solutions. Each one corresponds to a square in the 3x3 tic-tac-toe grid. So that's 9 invalid solutions. Let's subtract them and we get: 25 - 9 = 16.
+Luckily there's a really easy way to count all the invalid winning lines. Each one corresponds to a single square in the 3x3 tic-tac-toe grid. So that's 9 invalid winning lines. Let's subtract them and we get: 25 - 9 = 16.
 
-We're almost there. We need to make one last correction. We've counted each solution twice. Consider the following solution:
+We're almost there. We need to make one last correction. We've counted each winning line twice. Consider the following winning line:
 
 <div><img src="4.jpg" class="double"></div>
 
-It can be described by either { x: constant 2, y: increasing } or { x: constant 2, y: decreasing }. Every single solution has exactly 2 ways to describe it. So we need to divide our solutions by 2.
+It can be described by either { x: constant 2, y: increasing } or { x: constant 2, y: decreasing }. Every single winning line has exactly 2 ways to describe it. So we need to divide our winning lines by 2.
 
 $$\frac{25 - 9}{2} = 8$$
 
 And that's correct!
 
-Extending this to N-dimensions is actually really trivial. Each of N dimensions have 5 choices, but we need to subtract the $$3^N$$ hypercube since those are all the invalid solutions where all of the dimensions are constant, and lastly we need to divide by 2. That leaves us with
+Extending this to N-dimensions is actually really trivial. Each of N dimensions have 5 choices, but we need to subtract the $$3^N$$ hypercube since those are all the invalid winning lines where all of the dimensions are constant, and lastly we need to divide by 2. That leaves us with
 
 $$
 f(n) = \frac{5^n - 3^n}{2}
