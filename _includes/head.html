@@ -18,7 +18,9 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  
+  <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   <!-- START Favicon stuff -->
   <link rel="apple-touch-icon" sizes="57x57" href="{{ "/favicon/apple-icon-57x57.png" | prepend: site.baseurl }}">
@@ -43,7 +45,7 @@
   <script type="text/javascript">    
     MathJax.Hub.Config({    
     extensions: ["tex2jax.js"],    
-    "HTML-CSS": { scale: 70}    
+    "HTML-CSS": { scale: 80}    
     });    
   </script>
 
