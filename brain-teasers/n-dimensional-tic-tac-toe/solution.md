@@ -29,7 +29,7 @@ Here are a few more winning lines, just so it's clear what I mean:
 
 So we have 5 choices per dimension. We have 2 dimensions so our starting guess for how many winning lines will be 5 x 5 = 25.
 
-But wait, some of these winning lines aren't valid. If all the dimensions are constant, that's not a valid tic-tac-toe winning line. At least one dimension must be varying otherwise you just get a single square. For example, here is the invalid winning line where x is constant 1 and y is constant 2.
+But wait, some of these winning lines aren't valid. If all the dimensions are constant, that's not a valid tic-tac-toe winning line. At least one dimension must be increasing or decreasing -- otherwise you just get a single square. For example, here is the invalid winning line where x is constant 1 and y is constant 2.
 
 <div><img src="3.jpg" class="single"></div>
 
