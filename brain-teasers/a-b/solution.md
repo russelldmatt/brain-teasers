@@ -1,6 +1,6 @@
 ---
 layout: solution
-title:  "AB"
+title:  "A-B"
 category: brain-teaser
 tags: solution
 
