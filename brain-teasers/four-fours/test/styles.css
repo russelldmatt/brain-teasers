@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed to flex-start to align the grid at the top */
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-height: 100vh; /* Set max-height to 100% of the viewport height */
+  overflow-y: hidden; /* Prevents the whole container from scrolling vertically */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 30px);
+  grid-template-rows: repeat(96, 30px);
+  gap: 5px;
+  overflow-y: auto; /* Adds vertical scrolling to the grid container */
+  max-height: 100vh; /* Ensures the grid doesn’t exceed the viewport height */
+}
+
+.grid-square {
+  width: 30px;
+  height: 30px;
+  background-color: #4caf50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.grid-square:hover {
+  background-color: #45a049;
+}
+
+.grid-square.active {
+  background-color: #ff5722;
+}
+
+.grid-square.disabled {
+  background-color: gray;
+}
+
+.details-container {
+  width: 200px;
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-y: auto; /* Adds scrolling to the details container if content overflows */
+  max-height: 100vh; /* Ensures the details container doesn’t exceed the viewport height */
+}
+
+#ways-display {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  white-space: pre-line;
+}
+
+#ways-display .clickable-square {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
