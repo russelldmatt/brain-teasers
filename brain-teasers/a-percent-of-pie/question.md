@@ -6,6 +6,7 @@ add_date: 2024-11-16
 category: brain-teaser
 tags:
   - question
+source: <a href="https://mindyourdecisions.com/blog/2019/04/25/the-pythagoras-pie-puzzle/">MindYourDecisions</a>
 ---
 
 <img src="pic.webp" width="350px" alt="A giant pie">
