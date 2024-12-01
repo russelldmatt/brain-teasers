@@ -1,14 +1,13 @@
 ---
 layout: brain-teaser
-title:  "N-dimensional Tic-Tac-Toe"
+title: 'N-dimensional Tic-Tac-Toe'
 difficulty: 8
 add_date: 2016-01-30
 category: brain-teaser
 tags:
-- question
-- solved
+  - question
+  - solved
 source: jlevinson
-
 ---
 
 <img src="tic-tac-toe.jpg" alt="Tic Tac Toe Board" style="width: 100px;"/>

@@ -1,13 +1,12 @@
 ---
 layout: brain-teaser
-title:  "ABCD"
+title: 'ABCD'
 difficulty: 1
 add_date: 2023-11-26
 category: brain-teaser
 tags:
-- question
-- solved
-
+  - question
+  - solved
 ---
 
 <pre>

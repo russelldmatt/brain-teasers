@@ -2,89 +2,119 @@
 layout: default
 ---
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.min.js"
+></script>
 
 <div class="home">
+  <style type="text/css" media="screen">
+    td {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  </style>
+  <table
+    id="main-table"
+    class="tablesorter table table-striped table-hover table-condensed"
+  >
+    <thead>
+      <tr style="font-size: 14px">
+        <th>Rank</th>
+        <th>Difficulty</th>
+        <th>Solved</th>
+        <th>Question</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% assign i = 0 %} {% assign show_hidden = page.show_hidden %} {% assign
+      pages = site.pages | sort:'difficulty' %} {% for page in pages %} {% if
+      (page.category == "brain-teaser" and page.tags contains "question") %} {%
+      if page.hidden == show_hidden %} {% assign i = i | plus: 1 %}
+      <tr>
+        <td>
+          <span class="sort-value" style="display: none">{{ i }}</span>
+          {{ i }}
+        </td>
+        <td>
+          <span class="sort-value" style="display: none"
+            >{{ page.difficulty }}</span
+          >
+          {% include stars.html difficulty=page.difficulty %}
+        </td>
+        <td>
+          <span class="sort-value" style="display: none"
+            >{% if page.tags contains "solved" %}1{% else %}0{% endif %}</span
+          >
+          {% if page.tags contains "solved" %}<img
+            src="check.png"
+            width="20px"
+          />{% else %}{% endif %}
+        </td>
+        <td>
+          <span class="sort-value" style="display: none">{{ page.title }}</span>
+          <h4 style="display: table-cell">
+            <a class="post-meta" href="{{ page.url | prepend: site.baseurl }}"
+              >{{ page.title }}</a
+            >
+          </h4>
+        </td>
+        <td>
+          <span class="sort-value" style="display: none"
+            >{{ page.add_date }}</span
+          >
+          <span class="post-meta">{{ page.add_date }}</span>
+        </td>
+      </tr>
+      {% endif %} {% endif %} {% endfor %}
+    </tbody>
+  </table>
 
-    <style type="text/css" media="screen">
-     td {
-	 padding-left: 5px;
-	 padding-right: 5px;
-     }
-    </style>
-    <table id="main-table" class="tablesorter table table-striped table-hover table-condensed">
-	<thead>
-	  <tr style="font-size: 14px;">
-		<th>Rank</th>
-		<th>Difficulty</th>
-		<th>Solved</th>
-		<th>Question</th>
-		<th>Date</th>
-	    </tr>
-	</thead>
-	<tbody>
-	    {% assign i = 0 %}
-	    {% assign show_hidden = page.show_hidden %}
-	    {% assign pages = site.pages | sort:'difficulty' %}
-	    {% for page in pages %}
-	    {% if (page.category == "brain-teaser" and page.tags contains "question") %}
-	    {% if page.hidden == show_hidden %}
-	    {% assign i = i | plus: 1 %}
-	    <tr>
-		<td>
-		  <span class="sort-value" style="display: none;">{{ i }}</span>
-		  {{ i }}
-		</td>
-		<td>
-		    <span class="sort-value" style="display: none;">{{ page.difficulty }}</span>
-		    {% include stars.html difficulty=page.difficulty %}
-		</td>
-		<td>
-		    <span class="sort-value" style="display: none;">{% if page.tags contains "solved" %}1{% else %}0{% endif %}</span>
-		    {% if page.tags contains "solved" %}<img src="check.png" width="20px">{% else %}{% endif %}
-		</td>
-		<td>
-		    <span class="sort-value" style="display: none;">{{ page.title }}</span>
-		    <h4 style="display:table-cell;">
-			<a class="post-meta" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-		    </h4>
-		</td>
-		<td>
-		    <span class="sort-value" style="display: none;">{{ page.add_date }}</span>
-		    <span class="post-meta">{{ page.add_date }}</span>
-		</td>
-	    </tr>
-	    {% endif %}
-	    {% endif %}
-	    {% endfor %}
-	</tbody>
-    </table>
-
-    Other recommended sites:
-    <ul>
-	<li>
-	    <a href="https://fivethirtyeight.com/tag/the-riddler/">
-		<img width="20px" src="https://s0.wp.com/wp-content/themes/vip/espn-fivethirtyeight/assets/images/logo-fox-head-color.svg">
-		538's The Riddler</a>
-		
-	</li>
-	<li> <a href="https://www.ocf.berkeley.edu/~wwu/riddles/intro.shtml">wu : riddles</a> </li>
-	<li> <a href="http://www.puzzle.dse.nl/teasers/index_us.html">Ultimate Puzzle Size</a> </li>
-	<li> Mosteller Fifty Challenging Problems in Probability </li>
-	<li> <a href="http://sds.podval.org/puzzles.html">Sam Steingold's list of puzzles</a> </li>
-    </ul>
-
+  Other recommended sites:
+  <ul>
+    <li>
+      <a href="https://mindyourdecisions.com/blog/">
+        Presh Talwalkar's Mind Your Decisions</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://www.youtube.com/channel/UCsooa4yRKGN_zEE8iknghZA/search?query=riddle"
+      >
+        TED-Ed's riddles</a
+      >
+    </li>
+    <li>
+      <a href="https://fivethirtyeight.com/tag/the-riddler/">
+        538's The Riddler</a
+      >
+    </li>
+    <li>
+      <a href="https://www.ocf.berkeley.edu/~wwu/riddles/intro.shtml"
+        >wu : riddles</a
+      >
+    </li>
+    <li>
+      <a href="http://www.puzzle.dse.nl/teasers/index_us.html"
+        >Ultimate Puzzle Size</a
+      >
+    </li>
+    <li>Mosteller Fifty Challenging Problems in Probability</li>
+    <li>
+      <a href="http://sds.podval.org/puzzles.html"
+        >Sam Steingold's list of puzzles</a
+      >
+    </li>
+  </ul>
 </div>
 
 <script>
- $(document).ready(function() { 
-     var hiddenSpanHTML = function(node) 
-     { 
-         // extract the value from the hidden span that is the first child node of each <td>
-         return node.childNodes[0].nextSibling.innerHTML;
-     }
-     $("#main-table").tablesorter({textExtraction: hiddenSpanHTML});
- }
- ); 
+  $(document).ready(function () {
+    var hiddenSpanHTML = function (node) {
+      // extract the value from the hidden span that is the first child node of each <td>
+      return node.childNodes[0].nextSibling.innerHTML;
+    };
+    $('#main-table').tablesorter({ textExtraction: hiddenSpanHTML });
+  });
 </script>
-
